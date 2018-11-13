@@ -24,7 +24,6 @@ export class Game extends React.Component {
     this.props.dispatch(
       generateAuralUpdate(this.props.guesses,this.props.feedback)
     );
-
   }
 
   render() {
