@@ -6,15 +6,12 @@ import GuessSection from './guess-section';
 import StatusSection from './status-section';
 import InfoSection from './info-section';
 
+import {restartGame} from '../actions';
+
 export class Game extends React.Component {
 
   restartGame() {
-    this.setState({
-      guesses: [],
-      feedback: 'Make your guess!',
-      auralStatus: '',
-      correctAnswer: Math.floor(Math.random() * 100) + 1
-    });
+    this.props.dispatch(restartGame());
   }
 
   makeGuess(guess) {

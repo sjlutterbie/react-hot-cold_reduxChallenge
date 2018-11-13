@@ -11,5 +11,17 @@ const initialState = {
 
 export const hotOrColdReducer = (state=initialState, action) => {
   
+  if (action.type === actions.RESTART_GAME) {
+    return initialState;
+  }
+  
+  else if (action.type === actions.MAKE_GUESS) {
+    // Something happens
+  }
+  
+  else if (action.type === actions.GEN_AURAL_UPDATE) {
+    // Something happens
+  }
+
   return state;
 };
