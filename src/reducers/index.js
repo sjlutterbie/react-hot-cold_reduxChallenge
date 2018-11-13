@@ -21,7 +21,8 @@ export const hotOrColdReducer = (state=initialState, action) => {
   }
   
   else if (action.type === actions.GEN_AURAL_UPDATE) {
-    // Something happens
+    return Object.assign({}, state,
+      generateAuralUpdate(action.guesses, action.feedback));
   }
 
   return state;
@@ -46,7 +47,7 @@ export function makeGuess(guess, correctAnswer, guesses) {
   if (difference > 50) {
     stateUpdate.feedback = 'You\re Ice Cold...';
   } else if (difference >= 30) {
-    stateUpdate.feedback = 'You\re Cold...';
+    stateUpdate.feedback = 'You\'re Cold...';
   } else if (difference >= 10) {
     stateUpdate.feedback = 'You\'re Warm...';
   } else if (difference >= 1) {
@@ -66,4 +67,27 @@ export function makeGuess(guess, correctAnswer, guesses) {
   
   return stateUpdate;
   
+}
+
+
+export function generateAuralUpdate(guesses, feedback) {
+  
+  const stateUpdate = {};
+  
+  // If there's not exactly 1 guess, we want to pluraize the nouns in this
+  // aural update.
+  const pluralize = guesses.length !== 1;
+  
+  stateUpdate.auralStatus = `Here's the status of the game right now: `
+    + `${feedback} You've made ${guesses.length} `
+    + `${pluralize ? 'guesses' : 'guess'}.`;
+  
+  if (guesses.length > 0) {
+    stateUpdate.auralStatus += ' '
+      + `${pluralize ? 'In order of most- to least-recent, they are' : 'It was'}`
+      + `: ${guesses.reverse().join(', ')}`;  
+  }
+  
+  return stateUpdate;
+
 }

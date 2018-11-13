@@ -14,7 +14,9 @@ export const makeGuess = (guess, correctAnswer, guesses) => ({
 });
 
 export const GEN_AURAL_UPDATE = 'GEN_AURAL_UPDATE';
-export const generateAuralUpdate = () => ({
-  type: GEN_AURAL_UPDATE
+export const generateAuralUpdate = (guesses, feedback) => ({
+  type: GEN_AURAL_UPDATE,
+  guesses,
+  feedback
 });
 
