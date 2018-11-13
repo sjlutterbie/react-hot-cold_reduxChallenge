@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 import './guess-count.css';
 
-export function GuessCount(props) {
+export default function GuessCount(props) {
     const isPlural = props.guessCount !== 1;
     const guessNoun = isPlural ? 'guesses' : 'guess';
 
@@ -17,3 +17,4 @@ export function GuessCount(props) {
 GuessCount.defaultProps = {
     guessCount: 0
 };
+

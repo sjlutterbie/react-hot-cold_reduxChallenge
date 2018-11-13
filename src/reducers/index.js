@@ -11,5 +11,5 @@ const initialState = {
 
 export const hotOrColdReducer = (state=initialState, action) => {
   
-  
+  return state;
 };
