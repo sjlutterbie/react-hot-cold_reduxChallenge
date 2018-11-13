@@ -6,9 +6,11 @@ export const restartGame = () => ({
 });
 
 export const MAKE_GUESS = 'MAKE_GUESS';
-export const makeGuess = (guess) => ({
+export const makeGuess = (guess, correctAnswer, guesses) => ({
   type: MAKE_GUESS,
-  guess
+  guess,
+  correctAnswer,
+  guesses
 });
 
 export const GEN_AURAL_UPDATE = 'GEN_AURAL_UPDATE';
