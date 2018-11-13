@@ -1,10 +1,11 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
 import TopNav from './top-nav';
 
 import './header.css';
 
-export default function Header(props) {
+export function Header(props) {
   return (
     <header>
       <TopNav
@@ -15,3 +16,5 @@ export default function Header(props) {
     </header>
   );
 }
+
+export default connect()(Header);
